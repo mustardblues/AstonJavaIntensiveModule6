@@ -1,4 +1,4 @@
-package edu.aston.userservice.model;
+package edu.aston.userservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +19,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false, length = MAX_NAME_LENGTH)
     private String name;
@@ -42,7 +42,7 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
-    public User(final long id, final String name, final String email, final int age) {
+    public User(final int id, final String name, final String email, final int age) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -50,7 +50,7 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 

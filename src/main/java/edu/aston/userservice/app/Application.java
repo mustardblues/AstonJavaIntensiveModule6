@@ -1,23 +1,11 @@
 package edu.aston.userservice.app;
 
-import edu.aston.userservice.gui.Cli;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import edu.aston.userservice.dao.UserDAOImpl;
-import edu.aston.userservice.service.UserServiceImpl;
-import edu.aston.userservice.util.HibernateUtil;
-
+@SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        try {
-            final Cli cli = new Cli(new UserServiceImpl(new UserDAOImpl(HibernateUtil.getSessionFactory())));
-
-            cli.run();
-        }
-        catch(Exception exception) {
-            System.exit(1);
-        }
-        finally {
-            HibernateUtil.shutdown();
-        }
+        SpringApplication.run(Application.class, args);
     }
 }

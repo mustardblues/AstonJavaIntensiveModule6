@@ -1,13 +1,14 @@
 package edu.aston.userservice.service;
 
-import edu.aston.userservice.model.User;
+import edu.aston.userservice.dto.UserRequestDTO;
+import edu.aston.userservice.dto.UserResponseDTO;
 
 import java.util.List;
 
 public interface UserService {
-    User createUser(final String name, final String email, final int age) throws UserServiceException;
-    List<User> findAll() throws UserServiceException;
-    User findById(final long id) throws UserServiceException;
-    void updateUser(final long id, final String name, final String email, final int age) throws UserServiceException;
-    boolean deleteById(final long id) throws UserServiceException;
+    UserResponseDTO createUser(final UserRequestDTO userRequestDTO) throws UserServiceException;
+    List<UserResponseDTO> findAll() throws UserServiceException;
+    UserResponseDTO findById(final Integer id) throws UserServiceException;
+    UserResponseDTO updateUser(final Integer id, final UserRequestDTO userRequestDTO) throws UserServiceException;
+    boolean deleteById(final Integer id) throws UserServiceException;
 }

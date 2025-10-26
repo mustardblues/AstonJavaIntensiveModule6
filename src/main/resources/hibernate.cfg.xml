@@ -17,6 +17,6 @@
 
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <mapping class="edu.aston.userservice.model.User"/>
+        <mapping class="edu.aston.userservice.entity.User"/>
     </session-factory>
 </hibernate-configuration>
